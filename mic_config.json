@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "file-agent": {
+      "command": "/path/to/assignment/venv/bin/python3",
+      "args": ["/path/to/assignment/mcp_server.py"],
+      "env": {
+        "OPENAI_API_KEY":"",
+        "LIGHT_MODEL":"",
+        "POWERFUL_MODEL":"",
+        "WORK_DIR":""
+      }
+    }
+  }
+}
