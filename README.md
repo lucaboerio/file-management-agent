@@ -9,7 +9,6 @@ The system automatically classifies requests and uses the most appropriate model
 - **Multi-Model Architecture**: Uses lightweight models for simple operations and powerful models for complex analysis
 - **Multiple Interfaces**: Interactive CLI, single commands, and MCP server
 - **Complete File Management**: Reading, writing, deletion, analysis, and search
-- **Context Awareness**: Maintains context from previous conversations (for Interactive CLI)
 
 ## Requirements
 
