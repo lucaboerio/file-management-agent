@@ -112,7 +112,9 @@ class MultiModelFileAgent:
     async def classify_request(self, user_input: str) -> RequestClassification:
         try:
             result = await self.classifier.run(user_input, deps=self.state)
-            return result.output
+            classification = result.output
+            print(f"Classification: {classification.request_type.value} (confidence: {classification.confidence})")
+            return classification
         except Exception as e:
             return RequestClassification(
                 request_type=RequestType.COMPLEX,
@@ -145,6 +147,7 @@ class MultiModelFileAgent:
         try:
             classification = await self.classify_request(user_input)
             
+            # Use the enum value properly
             if classification.request_type == RequestType.INVALID:
                 response = await self.handle_invalid_request(classification)
                 
@@ -152,7 +155,7 @@ class MultiModelFileAgent:
                 print("Using simple agent...")
                 response = await self.handle_simple_request(user_input)
                     
-            else:
+            else:  # RequestType.COMPLEX
                 print("Using complex agent...")
                 response = await self.handle_complex_request(user_input)
     
